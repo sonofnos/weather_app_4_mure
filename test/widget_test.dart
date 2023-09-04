@@ -27,4 +27,12 @@ void main() {
     expect(find.text('0'), findsNothing);
     expect(find.text('1'), findsOneWidget);
   });
+
+
+ testWidgets('FAB renders', (WidgetTester tester) async {
+    await tester.pumpWidget(MaterialApp(home: FloatingActionButton(onPressed: () {}, child:  const Icon(Icons.add))));
+
+    expect(find.byType(FloatingActionButton), findsOneWidget);
+    expect(find.byIcon(Icons.add), findsOneWidget);
+  });
 }
